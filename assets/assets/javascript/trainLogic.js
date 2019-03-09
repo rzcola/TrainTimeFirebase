@@ -44,8 +44,8 @@ $(document).ready(function(){
        var minAway;
        var nextTrain = moment(childSnapshot.val().firstTrain, "hh:mm").subtract(1, "years");
        // Time difference between the current and previous train
-       var diffTime = moment().diff(moment(nextTrain), "minutes");
-       var remainder = diffTime % childSnapshot.val().frequency;
+       var timeDifferance = moment().diff(moment(nextTrain), "minutes");
+       var remainder = timeDifferance % childSnapshot.val().frequency;
        // Time in (Min) for next train arrival
        var minAway = childSnapshot.val().frequency - remainder;
        var nextTrain = moment().add(minAway, "minutes");

@@ -1,0 +1,25 @@
+.jumbotron-fluid {
+    background-color:   rgb(238, 240, 126);
+    background: lightyellow;
+    height: 7em;
+    font-size: 2rem;
+    margin: auto;
+    padding: 5rem;
+  
+
+}
+body{
+    background: lightblue;
+}
+p,
+h1
+{
+     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size:  2rem;
+    color: white;
+
+}
+
+h4{
+    color: white;
+}

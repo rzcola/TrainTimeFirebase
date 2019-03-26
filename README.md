@@ -5,6 +5,7 @@
 * The app uses Firebase to host the data retrieved from the user-input.
 
 * The app also features real-time updates for departure and arrival times.
+   ![Screenshot](/firebase.png)
 
 
 ## Technologies 
@@ -19,4 +20,5 @@
     
      The info is then updated with departure/arrival times along with your destination.
 
+   ![Screenshot](/train.png)
    

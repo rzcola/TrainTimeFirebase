@@ -20,7 +20,7 @@ $(document).ready(function(){
    var destination;
    var frequency = 0;
    //   On click function and event.preventDefault so that the page doesn't refresh
-   $("#add-train").on("click", function() {
+   $("#add-train").on("click", function(event) {
        event.preventDefault();
        // Tracking and Recording data info as it comes in and out 
        name = $("#train-name").val().trim();
@@ -40,7 +40,11 @@ $(document).ready(function(){
    });
 // Firebase snapshot .on("child_added"
    database.ref().on("child_added", function(childSnapshot) {
-       var newArry;
+       console.log(childSnapshot);
+        var 
+
+
+
        var minAway;
        var nextTrain = moment(childSnapshot.val().firstTrain, "hh:mm").subtract(1, "years");
        // Time difference between the current and previous train
@@ -52,22 +56,17 @@ $(document).ready(function(){
        nextTrain = moment(nextTrain).format("hh:mm");
 
        // user inputs data and submits it appends the previous inputs 
-       $("#add-row").append("<tr><td>" + childSnapshot.val().name +
-               "</td><td>" + childSnapshot.val().destination +
-               "</td><td>" + childSnapshot.val().frequency +
-               "</td><td>" + nextTrain + 
-               "</td><td>" + minAway + "</td></tr>");
+       $("#add-row").append(
+            $("<td>").text(childSnapshot.val().name),
+            $("<td>").text(childSnapshot.val().destination),
+            $("<td>").text(childSnapshot.val().frequency),
+            $("<td>").text(nextTrain),                
+            $("<td>").text(minAway),
 
            // handles the errors 
-       }, function(errorObject) {
+       )}, 
+       
+       function(errorObject) {
            console.log("Errors handled: " + errorObject.code);
-   });
-
-   database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function(snapshot) {
-       // Change the HTML to reflect
-       $("#train-name-display").html(snapshot.val().name);
-       $("#destination-display").html(snapshot.val().email);
-       $("#first-train-display").html(snapshot.val().age);
-       $("#frequency").html(snapshot.val().comment);
    });
 });

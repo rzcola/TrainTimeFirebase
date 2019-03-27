@@ -20,5 +20,5 @@
     
      The info is then updated with departure/arrival times along with your destination.
 
-   ![Screenshot](/train.png)
+   ![Screenshot](/Train.png)
    
